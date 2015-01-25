@@ -127,6 +127,8 @@ class CustomTestPanel(ttk.Frame) :
             tkMessageBox.showerror("错误" , "内部配置文件写入错误")
             print >>sys.stderr , confContent
             return False
+        if os.path.exists(self.logPath) :
+            os.remove(self.logPath)
         if self.conf.customOtcwsEnable :
             self.cmdstr = ' '.join([self.conf.customOtcwsPath , self.confPath , '>' , self.saveDataPath , '2>' , self.logPath])
             #print self.cmdstr

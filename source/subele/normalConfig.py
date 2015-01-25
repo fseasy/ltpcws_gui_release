@@ -46,12 +46,8 @@ class NormalConfig(ttk.Frame) :
                 self.exePrePath = os.path.normpath(self.exedir + "/linux_amd64/")
             elif self.system == "Linux" and self.bits == 32 :
                 self.exePrePath = os.path.normpath(self.exedir + "/linux_i386/")
-            elif self.system == "Windows" and self.bits == 64 :
-                self.exePrePath = os.path.normpath(self.exedir + '/win_x64/')
-                self.otExe += ".exe"
-                self.cusOtExe += ".exe"
-            elif self.system == "Windows" and self.bits == 32 :
-                self.exePrePath = os.path.normpath(self.exedir + '/win_x86/')
+            elif self.system == "Windows" :
+                self.exePrePath = os.path.normpath(self.exedir + '/win/')
                 self.otExe += ".exe"
                 self.cusOtExe += ".exe"
             elif self.system == "OSX" :

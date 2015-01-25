@@ -118,6 +118,8 @@ class BasicTestPanel(ttk.Frame) :
             tkMessageBox.showerror("错误" , "内部配置文件写入错误")
             print >>sys.stderr , confContent
             return False
+        if os.path.exists(self.logPath) :
+            os.remove(self.logPath)
         if self.conf.otcwsEnable :
             self.cmdstr = ' '.join([self.conf.otcwsPath , self.confPath , '>' , self.saveDataPath , '2>' , self.logPath])
             #print self.cmdstr
@@ -153,7 +155,7 @@ class BasicTestPanel(ttk.Frame) :
             if logCont != "" :
                 self.logText.insert(tk.END , logCont , "text")
                 self.logText.see(tk.END)
-            self.outText.update()
+            self.update()
             time.sleep(0.1)
         try :
             self.outFile.close()

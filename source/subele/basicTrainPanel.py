@@ -128,6 +128,8 @@ class BasicTrainPanel(ttk.Frame) :
             print >>sys.stderr , confCont
             return False
         #check exe
+        if os.path.exists(self.logPath) :
+            os.remove(self.logPath)
         if self.conf.otcwsEnable :
             self.cmdstr = ' '.join([
                 self.conf.otcwsPath ,
@@ -166,7 +168,7 @@ class BasicTrainPanel(ttk.Frame) :
                 self.logText.insert(tk.END , cont , "text")
                 #self.trainTipsVar.set(cont) 
                 self.logText.yview(tk.MOVETO , 1)
-            self.logText.update()
+            self.update()
             time.sleep(0.1)
         try :
             self.logFile.close()

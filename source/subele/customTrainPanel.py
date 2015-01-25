@@ -136,6 +136,8 @@ class CustomTrainPanel(ttk.Frame) :
             print >>sys.stderr , confCont
             return False
         #check exe
+        if os.path.exists(self.logPath) :
+            os.remove(self.logPath)
         if self.conf.customOtcwsEnable :
             self.cmdstr = ' '.join([
                 self.conf.customOtcwsPath ,

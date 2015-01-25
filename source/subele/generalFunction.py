@@ -40,22 +40,19 @@ def createTextWithScroll(master , row=0 , col=0 , rowspan=1 , colspan=30) :
     logText.config(cursor="arrow")
     return logText 
 def openFileFolder(path , system) :
-    print path
-    print system
     if system == "Windows" :
         try :
-            subprocess.Popen("explorer /select," + path , shell=True)
+            subprocess.Popen("explorer /select," + path )
         except :
             pass
     elif system == "Linux" :
         try :
-            subprocess.Popen("nautilus "+ path , shell=True)
-        except Exception , e:
-            print e
+            subprocess.Popen("nautilus "+ path)
+        except :
             pass
     elif system == "OSX" :
         try :
-            subprocess.Popen("open " + os.path.dirname(path) , shell=True)
+            subprocess.Popen("open " + os.path.dirname(path))
         except :
             pass
     
